@@ -1,0 +1,95 @@
+@charset "UTF-8";
+body {
+  color: #fff;
+  background: #ff0; }
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+nav li {
+  display: inline-block; }
+nav a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none; }
+
+body {
+  line-height: 2; }
+
+nav a {
+  color: red; }
+  header nav a {
+    color: green; }
+
+.box {
+  font-size: 12px;
+  font-weight: bold; }
+
+.box:before {
+  content: "伪元素嵌套"; }
+
+.box {
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  margin-bottom: 5px; }
+
+.btn, .btn-primary {
+  -webkit-border-radius: 3px;
+  border-radius: 3px; }
+
+.btn, .btn-primary {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  font-size: 14px; }
+
+.btn-primary {
+  background-color: #f36;
+  color: #fff; }
+
+.btn, .btn-primary, .block {
+  margin-top: 5px; }
+
+.btn, .btn-primary, .block span {
+  padding-top: 5px; }
+
+.block {
+  margin-top: 5px; }
+  .block span {
+    display: block;
+    margin-top: 5px; }
+
+.header {
+  color: orange;
+  margin-top: 5px; }
+  .header span {
+    display: block;
+    margin-top: 5px; }
+
+.mt, .block, .block span, .header, .header span {
+  margin-top: 5px; }
+
+.block span {
+  display: block; }
+
+.header {
+  color: orange; }
+  .header span {
+    display: block; }
+
+.block, .block span, .header, .header span {
+  margin-top: 5px; }
+
+.block span {
+  display: block; }
+
+.header {
+  color: orange; }
+  .header span {
+    display: block; }
+
+.login-box {
+  margin-top: 14px;
+  padding-top: 14px; }
+
+/*# sourceMappingURL=block.css.map */

@@ -1,0 +1,202 @@
+$color:#fff;
+$bg:#ff0;
+body{
+    color: $color;
+    background: $bg;
+}
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}
+
+
+
+$baseLineHeight: 2;//定义变量
+$baseLineHeight: 1.5 !default;//默认值
+body{
+    line-height: $baseLineHeight; //使用变量
+}
+
+nav {
+  a {
+    color: red;
+    
+    header & {//header nav a
+      color:green;
+    }
+  }  
+}
+
+
+.box {
+  font: {
+   size: 12px;
+   weight: bold;
+  }  
+}
+
+
+
+.box{
+  &:before {//.box:before
+    content:"伪元素嵌套";
+  }
+}
+
+
+@mixin border-radius($radius:5px){//宏 参数
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+}
+
+
+
+
+@mixin border-radius{
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.box {
+  @include border-radius;
+  margin-bottom: 5px;
+}
+
+.btn {
+  @include border-radius;//调用宏
+}
+
+
+
+.btn {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background-color: #f36;
+  color: #fff;
+  @extend .btn;//@extend继承
+}
+
+
+
+
+
+
+
+%mt5 {//占位符
+  margin-top: 5px;
+}
+%pt5{
+  padding-top: 5px;
+}
+
+.btn {
+  @extend %mt5;//调用占位符
+  @extend %pt5;
+}
+
+.block {
+  @extend %mt5;
+
+  span {
+    @extend %pt5;
+  }
+}
+
+
+//SCSS中混合宏使用
+@mixin mt($var){
+  margin-top: $var;  
+}
+
+.block {
+  @include mt(5px);
+
+  span {
+    display:block;
+    @include mt(5px);
+  }
+}
+
+.header {
+  color: orange;
+  @include mt(5px);
+
+  span{
+    display:block;
+    @include mt(5px);
+  }
+}
+
+//SCSS 继承的运用
+.mt{
+  margin-top: 5px;  
+}
+
+.block {
+  @extend .mt;
+
+  span {
+    display:block;
+    @extend .mt;
+  }
+}
+
+.header {
+  color: orange;
+  @extend .mt;
+
+  span{
+    display:block;
+    @extend .mt;
+  }
+}
+
+//SCSS中占位符的使用
+%mt{
+  margin-top: 5px;  
+}
+
+.block {
+  @extend %mt;
+
+  span {
+    display:block;
+    @extend %mt;
+  }
+}
+
+.header {
+  color: orange;
+  @extend %mt;
+
+  span{
+    display:block;
+    @extend %mt;
+  }
+}
+
+//插值#{}
+$properties: (margin, padding);
+@mixin set-value($side, $value) {
+    @each $prop in $properties {
+        #{$prop}-#{$side}: $value;
+    }
+}
+.login-box {
+    @include set-value(top, 14px);
+}
